@@ -1,0 +1,156 @@
+{
+"every-10-minutes": {
+  "EngineType": "cronTab",
+  "Expression": "*/10 * * * *" ,
+  "Priority":     1,
+  "params" : "every-5-minutes"
+},
+"every-5-minutes": {
+  "EngineType": "cronTab",
+  "Expression": "*/5 * * * *" ,
+  "Priority":     2,
+  "params" : ""
+},
+"every-minutes": {
+  "EngineType": "cronTab",
+  "Expression": "* * * * *" ,
+  "Priority":     3,
+  "params" : ""
+},
+"every-2-minutes": {
+  "EngineType": "cronTab",
+  "Expression": "*/2 * * * *" ,
+  "Priority":     5,
+  "params" : ""
+},
+"every-3-minutes": {
+  "EngineType": "cronTab",
+  "Expression": "*/3 * * * *" ,
+  "Priority":     6,
+  "params" : ""
+},
+
+"every-4-minutes": {
+  "EngineType": "cronTab",
+  "Expression": "*/4 * * * *" ,
+  "Priority":     4,
+  "params" : ""
+},
+"every-15-minutes": {
+  "EngineType": "cronTab",
+  "Expression": "*/15 * * * *" ,
+  "Priority":     7,
+  "params" : ""
+},
+
+"every-30-minutes": {
+  "EngineType": "cronTab",
+  "Expression": "*/30 * * * *" ,
+  "Priority":     9,
+  "params" : ""
+},
+"every-12-hours": {
+  "EngineType": "cronTab",
+  "Expression": "0 */12 * * *" ,
+  "Priority":     8,
+  "params" : ""
+},
+"weekly": {
+  "EngineType": "cronTab",
+  "Expression": "0 0 * * 0" ,
+  "Priority":     10,
+  "params" : ""
+},
+"monday-to-friday": {
+  "EngineType": "cronTab",
+  "Expression": "0 0 * * 1-5" ,
+  "Priority":     11,
+  "params" : ""
+},
+"every-year": {
+  "EngineType": "cronTab",
+  "Expression": "0 0 1 1 *" ,
+  "Priority":     20,
+  "params" : ""
+},
+
+"every-6-month": {
+  "EngineType": "cronTab",
+  "Expression": "0 0 1 */6 *" ,
+  "Priority":     19,
+  "params" : ""
+},
+"every-quarter": {
+  "EngineType": "cronTab",
+  "Expression": "0 0 1 */3 *" ,
+  "Priority":     18,
+  "params" : ""
+},
+"once-a-month": {
+  "EngineType": "cronTab",
+  "Expression": "0 0 1 * *" ,
+  "Priority":     17,
+  "params" : ""
+},
+"every-friday": {
+  "EngineType": "cronTab",
+  "Expression": "0 0 * * FRI" ,
+  "Priority":     16,
+  "params" : ""
+},
+"every-thursday": {
+  "EngineType": "cronTab",
+  "Expression": "0 0 * * THU" ,
+  "Priority":     15,
+  "params" : ""
+},
+"every-wednesday": {
+  "EngineType": "cronTab",
+  "Expression": "0 0 * * WED" ,
+  "Priority":     14,
+  "params" : ""
+},
+"every-50-minutes": {
+  "EngineType": "cronTab",
+  "Expression": "*/50 * * * *" ,
+  "Priority":     13,
+  "params" : ""
+},
+"every-11-minutes": {
+  "EngineType": "cronTab",
+  "Expression": "*/19 * * * *" ,
+  "Priority":     12,
+  "params" : ""
+},
+"every-40-minutes": {
+  "EngineType": "cronTab",
+  "Expression": "*/40 * * * *" ,
+  "Priority":     20,
+  "params" : ""
+},
+"every-21-minutes": {
+  "EngineType": "cronTab",
+  "Expression": "*/21 * * * *" ,
+  "Priority":     22,
+  "params" : ""
+},
+"every-17-minutes": {
+  "EngineType": "cronTab",
+  "Expression": "*/17 * * * *" ,
+  "Priority":     23,
+  "params" : ""
+},
+"every-19-minutes": {
+  "EngineType": "cronTab",
+  "Expression": "*/19 * * * *" ,
+  "Priority":     24,
+  "params" : ""
+},
+"every-11-minutes": {
+  "EngineType": "cronTab",
+  "Expression": "*/11 * * * *" ,
+  "Priority":     25,
+  "params" : ""
+}
+
+}
