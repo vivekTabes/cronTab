@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { fetchMostSearch } from '../actions';
 import URLconfig from './URLconfig.json';
 import { Link } from 'react-router-dom';
 
@@ -18,8 +16,7 @@ class MostSearch extends Component {
   componentDidMount(){
       var dataArr = [];
       var result = Object.keys(URLconfig).map(function(key) {
-        // return [key];
-        if(URLconfig[key].Priority < 24 && URLconfig[key].Priority >0){
+        if(URLconfig[key].Priority < 21 && URLconfig[key].Priority >0){
           return [key];
         }
 
@@ -31,50 +28,38 @@ class MostSearch extends Component {
   render(){
     const urlPage = Object.keys(URLconfig)
 
-
-
-    // const urlList = () => {
-    //   return urlPage.map((item) => {
-    //     return <div>
-    //     <Link to={"/" + item}><li>{item}</li></Link>
-    //     </div>
-    //   })
-    // }
-    
-
-
-const mostSearch =Object.keys(URLconfig)
-const firstColumn = mostSearch.slice(0,4).map(item => {
-  return <div>
-  <Link to={"/" + item}><li>{item}</li></Link>
-  </div>
-});
-const secondColumn = mostSearch.slice(4,8).map(item => {
-  return <div>
-  <Link to={"/" + item}><li>{item}</li></Link>
-  </div>
-});
-const thirdColumn = mostSearch.slice(8,12).map(item => {
-  return <div>
-  <Link to={"/" + item}><li>{item}</li></Link>
-  </div>
-});
-const fourthColumn = mostSearch.slice(12,16).map(item => {
-  return <div>
-  <Link to={"/" + item}><li>{item}</li></Link>
-  </div>
-});
-const fifthColumn = mostSearch.slice(16,20).map(item => {
-  return <div>
-  <Link to={"/" + item}><li>{item}</li></Link>
-  </div>
-});
+    const mostSearch =Object.keys(URLconfig)
+    const firstColumn = mostSearch.slice(0,4).map(item => {
+      return <div>
+      <Link to={"/" + item}><li>{item}</li></Link>
+      </div>
+    });
+    const secondColumn = mostSearch.slice(4,8).map(item => {
+      return <div>
+      <Link to={"/" + item}><li>{item}</li></Link>
+      </div>
+    });
+    const thirdColumn = mostSearch.slice(8,12).map(item => {
+      return <div>
+      <Link to={"/" + item}><li>{item}</li></Link>
+      </div>
+    });
+    const fourthColumn = mostSearch.slice(12,16).map(item => {
+      return <div>
+      <Link to={"/" + item}><li>{item}</li></Link>
+      </div>
+    });
+    const fifthColumn = mostSearch.slice(16,20).map(item => {
+      return <div>
+      <Link to={"/" + item}><li>{item}</li></Link>
+      </div>
+    });
 
     return <div className='container text-center'>
-         <h4 style={{ textAlign:"center", marginTop: "10px", fontFamily:"monospace"}}>Important Conversions</h4>
-         <title>CronTab</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-<div style={{ marginTop: "90px"}}>
+    <h4 style={{ textAlign:"center", marginTop: "10px", fontFamily:"monospace"}}>Important Conversions</h4>
+    <title>CronTab</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <div style={{ marginTop: "90px"}}>
    <div style={{fontSize: "125%",  textAlign: "left",
      display: "inline-block",
      verticalAlign: "top",
@@ -117,17 +102,4 @@ const fifthColumn = mostSearch.slice(16,20).map(item => {
 export default {
   component: MostSearch
 };
-// function mapStateToProps(state) {
-//   console.log(state);
-//   return {
-//     mostSearch: state.mostSearch }
-//     ;
-// }
 
-// function loadData(store) {
-//   return store.dispatch(fetchMostSearch());
-// }
-// export default {
-//   loadData,
-//   component: connect(mapStateToProps, { fetchMostSearch })(MostSearch)
-// };

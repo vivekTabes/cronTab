@@ -19,14 +19,15 @@ export default (req, store, context) => {
   const helmet = Helmet.renderStatic();
 
   return `
- <!DOCTYPE html>
-
-    <html>
+  <!doctype html>
+  <html encoding="UTF-8" charset="UTF-8" dir="ltr" lang="en-US" language="English" prefix="og: http://ogp.me/ns#" itemtype="http://schema.org/WebPage">
+  
       <head>
         ${helmet.title.toString()}
         ${helmet.meta.toString()}
-        <title>CronTab</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta data-rh="true" name="description"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
       </head>
       <body>

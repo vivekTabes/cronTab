@@ -11,6 +11,7 @@ class Home extends Component{
         cronExpression: null,
         humanReadable1: '',
         humanReadable2: '',
+        brColor:'',
         minute: false,
         hour: false,
         dayOfMonth: false,
@@ -69,40 +70,24 @@ class Home extends Component{
 
   render(){
 
-  this.check = (e) => { console.log(e.target.value);
+  this.check = (e) => { 
 
-      this.setState({ cronExpression: e.target.value },()=>{
+    this.setState({ cronExpression: e.target.value,
+        humanReadable1: '',humanReadable2:''},()=>{
         convertHumanReadable(this.state.cronExpression);
-      })}
+    })}
+
     const  convertHumanReadable = (value) => {
       try {
-        var interval = parser.parseExpression(value);
-        console.log(interval.Error);
-        if(interval.Error){
-          console.log("vivek tiwari");
-        }
-        
+        var interval = parser.parseExpression(value);  
         var strReadable = cronstrue.toString(value);
-          this.setState({ humanReadable1: strReadable })
-        
+        this.setState({ humanReadable1: strReadable})
+        this.setState({ humanReadable2: interval.next().toString()})
 
-
-    this.setState({ humanReadable2: interval.next().toString()})
-
-      } catch (err) {
+      }catch (err) {
         console.log('Error: ' + err.message);
       }
     }
-
-
-      function handleExpression(e)
-       {
-
-      this.setState({ cronExpression : e.target.value });
-
-    }
-
-
 
   this.onMinuteSelect = (e) => {
       e.preventDefault()
@@ -255,7 +240,7 @@ class Home extends Component{
 
 
     <div className='container ' style={{ textAlign: "center"}}>
-       <Input placeholder="" name="number" id ="number" size="large" onChange = {this.check}  value={this.state.cronExpression} style={{ marginTop: "10px",   fontSize: "30px",   fontFamily: "monospace", textAlign: "center", width: "70%"}}/>
+       <Input placeholder="" name="number" id ="number" size="large" onChange = {this.check}  value={this.state.cronExpression} style={{ marginTop: "10px", borderBottom:`${this.state.brColor} !important`, fontSize: "30px",   fontFamily: "monospace", textAlign: "center", width: "70%"}}/>
 
 
         
