@@ -5,8 +5,21 @@ import Routes from './client/Routes';
 import renderer from './helpers/renderer';
 import createStore from './helpers/createStore';
 
-const app = express();
-app.use(express.static('public'));
+
+var expressStaticGzip = require('express-static-gzip');
+var app = express();
+ 
+app.use('/', expressStaticGzip('public', {
+    enableBrotli: true,
+    customCompressions: [{
+        encodingName: 'brotli',
+        fileExtension: 'br'
+    }],
+    orderPreference: ['gz']
+}));
+
+// const app = express();
+// app.use(express.static('public'));
 
 app.get('*.js', function(req, res, next) {
   req.url = req.url + '.gz';
@@ -14,6 +27,9 @@ app.get('*.js', function(req, res, next) {
   // res.set('Content-Type', 'text/javascript');
   next();
 });
+
+
+
 
 app.get('*', (req, res) => {
   const store = createStore(req);
