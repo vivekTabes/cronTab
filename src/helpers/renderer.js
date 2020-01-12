@@ -4,7 +4,6 @@ import { StaticRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { renderRoutes } from 'react-router-config';
 import serialize from 'serialize-javascript';
-import { Helmet } from 'react-helmet';
 import Routes from '../client/Routes';
 
 export default (req, store, context) => {
@@ -16,15 +15,14 @@ export default (req, store, context) => {
     </Provider>
   );
 
-  const helmet = Helmet.renderStatic();
 
   return `
   <!doctype html>
   <html encoding="UTF-8" charset="UTF-8" dir="ltr" lang="en-US" language="English" prefix="og: http://ogp.me/ns#" itemtype="http://schema.org/WebPage">
   
       <head>
-        ${helmet.title.toString()}
-        ${helmet.meta.toString()}
+      <title>CronTab</title>
+      <link rel="icon" href="faviconImg.png">
         <meta data-rh="true" name="description"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1"/>

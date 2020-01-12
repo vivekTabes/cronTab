@@ -8,9 +8,9 @@ class Home extends Component{
   constructor(prop){
     super(prop)
   this.state = {
-        cronExpression: null,
-        humanReadable1: '',
-        humanReadable2: '',
+        cronExpression: '*/5 * * * *',
+        humanReadable1: 'Every 5 minutes',
+        humanReadable2: 'Sun Jan 12 2020 22:55:00 GMT+0530',
         brColor:'',
         minute: false,
         hour: false,
@@ -34,7 +34,8 @@ class Home extends Component{
         dayofweek5: null,
         dayofweek6: null
 
-      }
+      },
+      this.test();
   }
   
   componentDidMount() {
@@ -66,10 +67,29 @@ class Home extends Component{
 
      Converter(val)
   }
+   test(){
+    const { match: { params } } = this.props;
+    const urlParam = params.reqParams;
+    if(urlParam){
+      for (var key in URLconfig) {
+      if(key == urlParam){
+
+        if(URLconfig.hasOwnProperty(key)){
+          var val = URLconfig[key].Expression;
+          this.state.cronExpression = val;
+          var interval = parser.parseExpression(val);
+          this.state.humanReadable2 = interval.next().toString();
+          this.state.humanReadable1 = cronstrue.toString(val);
+        }
+      }
+
+    }
+  }
+}
   
 
   render(){
-
+    
   this.check = (e) => { 
 
     this.setState({ cronExpression: e.target.value,
@@ -224,9 +244,7 @@ class Home extends Component{
 
     return <div>
     <div className='text-center'>
-    <title>CronTab</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <div className='container'>
+      <div className='container' style={{height: "160px"}}>
               <div className='container' style={{ textAlign: "center", fontSize: "30px" , marginTop: "120px",}}>
                  {this.state.humanReadable1 && this.state.humanReadable1.search("Error") && <h4>"{this.state.humanReadable1}"</h4>}
              </div>
@@ -240,7 +258,7 @@ class Home extends Component{
 
 
     <div className='container ' style={{ textAlign: "center"}}>
-       <Input placeholder="" name="number" id ="number" size="large" onChange = {this.check}  value={this.state.cronExpression} style={{ marginTop: "10px", borderBottom:`${this.state.brColor} !important`, fontSize: "30px",   fontFamily: "monospace", textAlign: "center", width: "70%"}}/>
+       <Input placeholder="Minute Hours Day Month Week" name="number" id ="number" size="large" onChange = {this.check}  value={this.state.cronExpression} style={{ marginTop: "10px", borderBottom:`${this.state.brColor} !important`, fontSize: "30px",   fontFamily: "monospace", textAlign: "center", width: "70%"}}/>
 
 
         

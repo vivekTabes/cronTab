@@ -18,8 +18,8 @@ app.use('/', expressStaticGzip('public', {
     orderPreference: ['gz']
 }));
 
-// const app = express();
-// app.use(express.static('public'));
+//const app = express();
+app.use(express.static('public'));
 
 app.get('*.js', function(req, res, next) {
   req.url = req.url + '.gz';
